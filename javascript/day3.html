@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Management</title>
+</head>
+<body>
+    <script>
+        let employees = [
+            {name: "Namratha", age: 22, department: "Intern", salary: 20000},
+            {name: "Rohit", age: 25, department: "HR", salary: 25000},
+            {name: "Ramesh", age: 30, department: "IT", salary: 30000},
+            {name: "Suresh", age: 28, department: "Finance", salary: 28000}
+        ];
+    
+        console.log("Employee Data Management");
+        for (let i = 0; i < employees.length; i++) {
+            console.log(`Name: ${employees[i].name}, Age: ${employees[i].age}, Department: ${employees[i].department}, Salary: ${employees[i].salary}`);
+        }
+
+        employees.push({name: "Ananya", age: 24, department: "Marketing", salary: 22000});
+        let itemp = employees.filter(employee => employee.department === "IT");
+        let empname = employees.map(employee => employee.name);
+        let highestSalary = employees.reduce((max, employee) => employee.salary > max ? employee.salary : max, 0);
+        let {name, department} = employees[0];
+        let updatedemp = {
+            ...employees[4],
+            department: "sales",
+        };
+        console.log("Filtered Employees (IT):", itemp);
+        console.log("Employee Names:", empname);
+        console.log("Highest Salary:", highestSalary);
+        console.log("First Employee Name:", name);
+        console.log("First Employee Department:", department);
+        console.log("Updated Employee:", updatedemp);
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Application</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li button {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        li button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Task Management Application</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+
+    <button id="addButton">Add</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+
+        let taskInput = document.getElementById("taskInput");
+        let addButton = document.getElementById("addButton");
+        let taskList = document.getElementById("taskList");
+
+        let tasks = [];
+
+        // Load saved tasks
+        try {
+            let savedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+            if (savedTasks) {
+                tasks = savedTasks;
+            }
+        } catch (error) {
+            console.log("Error loading tasks:", error);
+        }
+
+
+        // Display tasks
+        function displayTasks() {
+
+            taskList.innerHTML = "";
+
+            tasks.forEach(function(taskText) {
+
+                let task = document.createElement("li");
+
+                task.textContent = taskText;
+
+                let deleteButton = document.createElement("button");
+
+                deleteButton.textContent = "Delete";
+
+                task.appendChild(deleteButton);
+
+
+                // Mark task as completed
+                task.addEventListener("click", function() {
+
+                    task.style.textDecoration =
+                        task.style.textDecoration === "line-through"
+                        ? "none"
+                        : "line-through";
+
+                });
+
+
+                // Delete task
+                deleteButton.addEventListener("click", function(event) {
+
+                    event.stopPropagation();
+
+                    task.remove();
+
+                    tasks = tasks.filter(function(item) {
+                        return item !== taskText;
+                    });
+
+                    localStorage.setItem(
+                        "tasks",
+                        JSON.stringify(tasks)
+                    );
+
+                });
+
+
+                taskList.appendChild(task);
+
+            });
+        }
+
+
+        // Add task
+        addButton.addEventListener("click", function() {
+
+            let value = taskInput.value.trim();
+
+            if (value === "") {
+                return;
+            }
+
+            tasks.push(value);
+
+            try {
+                localStorage.setItem(
+                    "tasks",
+                    JSON.stringify(tasks)
+                );
+            } catch (error) {
+                console.log("Error saving tasks:", error);
+            }
+
+            displayTasks();
+            console.log(`Task added: ${value}`);
+            taskInput.value = "";
+
+        });
+        // Display saved tasks when page loads
+        displayTasks();
+    </script>
+</body>
+</html>

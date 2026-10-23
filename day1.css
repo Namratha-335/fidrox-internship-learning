@@ -1,0 +1,35 @@
+h1 {
+    color: #000000d7;
+    background-color: #b99dfa;
+}
+
+h3 {
+    color: #000000d7;
+    background-color: #b99dfa;  
+    background-width: 100%;
+}
+
+.profile {
+    border: 1px solid black;
+    padding: 0px;
+    margin: 10px;
+}
+
+#about-me {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.link {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #d39ae6;
+    color: #000000d7;
+    text-decoration: underline;
+    border-radius: 4px;
+}
+
+* {
+    background-color: #e6d9f2;
+}

@@ -1,0 +1,96 @@
+.header{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: #aeaab6da;
+    padding: 0px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar {
+    background-color: #f0f0f0;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+    align-items: center;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.text-container{
+    flex: 1;
+}
+
+.image-container{
+    flex: 1;
+    text-align: center;
+}
+
+.about-us {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.about-us h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.mission,
+.vision {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+}
+
+.contact-us {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    background-color: #f2f2f2;
+    padding: 2px;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.department-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.department-item {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+</head>
+<body>
+    <h1>Employee Management</h1>
+    <input type="text" id="name" placeholder="Enter employee name">
+    <input type="number" id="empid" placeholder="Enter employee ID">
+    <input type="text" id="department" placeholder="Enter department">
+    <input type="text" id="designation" placeholder="Enter designation">
+    <input type="number" id="salary" placeholder="Enter salary">
+    <button id="addEmployee">Add Employee</button>
+    <div id="employeeList">
+
+    </div>
+
+    <script>
+        class Employee {
+            constructor(name, empid, department, designation, salary) {
+                this.name = name;
+                this.empid = empid;
+                this.department = department;
+                this.designation = designation;
+                this.salary = salary;
+            }
+        }
+            let emp1 = new Employee("John Doe", 101, "IT", "Developer", 60000);
+            let emp2 = new Employee("Jane Smith", 102, "HR", "Manager", 75000);
+            let emp3 = new Employee("Alice Johnson", 103, "Finance", "Analyst", 65000);
+            let employeeList = document.getElementById("employeeList");
+            
+            let employees = [emp1, emp2, emp3];
+            
+            let addButton = document.getElementById("addEmployee");
+            addButton.addEventListener("click", function() {
+                let name = document.getElementById("name").value;
+                let empid = document.getElementById("empid").value;
+                let department = document.getElementById("department").value;
+                let designation = document.getElementById("designation").value;
+                let salary = document.getElementById("salary").value;
+                let newEmployee = new Employee(name, empid, department, designation, salary);
+                employees.push(newEmployee);
+                displayEmployees();
+            });
+
+            function displayEmployees() {
+                employeeList.innerHTML = "";
+                employees.forEach(element => {
+                    let employeeDiv = document.createElement("div");
+                    employeeDiv.textContent = `Name: ${element.name}, ID: ${element.empid}, Department: ${element.department}, Designation: ${element.designation}, Salary: ${element.salary}`;
+                    employeeList.appendChild(employeeDiv);
+                });
+            }
+    </script>
+</body>
+</html>

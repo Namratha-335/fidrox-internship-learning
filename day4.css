@@ -1,0 +1,91 @@
+.form-title {
+    display: flex;
+    color: #070707;
+    font-size: 24px;
+    margin-bottom: 10px;
+    /* background-color: #aeaab6da; */
+    text-align: left;
+    height: 50px;
+    width: 200px;
+}
+
+.navbar {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #aeaab6da;
+    border: 1px solid #ccc;
+   width: 100%;
+   height: 30px;
+   gap: 3%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+}
+
+.text-container {
+    flex: 1;
+}
+
+.image-container {
+    flex: 1;
+    text-align: center;
+}
+
+#profile-image {
+    width: 200px;
+    height: 200px;
+}
+
+@media (max-width: 600px) {
+    /* styles for smaller screens */
+    .hero {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .text-container,
+    .image-container {
+        flex: 1;
+        text-align: center;
+    }
+
+    #profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-list {
+   display: flex;
+    margin-right: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-item {
+    flex: 1 1 calc(33.33% - 20px);
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}

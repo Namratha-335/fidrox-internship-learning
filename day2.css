@@ -1,0 +1,19 @@
+.form-title {
+    color: #5a46f8;
+    font-size: 24px;
+    margin-bottom: 10px;
+    background-color: #aeaab6;
+    text-align: center;
+
+}
+
+.form-title1 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: #aeaab6;
+}
+
+* {
+    background-color: #e1d7ec;
+}
